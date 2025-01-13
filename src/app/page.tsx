@@ -7,8 +7,8 @@ const Home: React.FC = () => {
 
   try {
     connectToMongoDB();
-  } catch (error:any) {
-    alert(error?.message)
+  } catch (error) {
+    alert((error as Error)?.message)
   }
 
 
