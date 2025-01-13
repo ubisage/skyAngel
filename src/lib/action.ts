@@ -51,7 +51,7 @@ export const createRank = async (formData: FormData) => {
     // Return the rank of the new entry
     return { rank: newRank };
   } catch (error) {
-    return { Error: "Error while storing the ranking" };
+    return { Error: ((error as Error)?.message) };
   }
 };
 
@@ -62,6 +62,6 @@ export const getRankings = async () => {
     const rankings = await Ranking.find().lean();
     return rankings;
   } catch (error) {
-    return { Error: "No rankings" };
+    return { Error: ((error as Error)?.message) };
   }
 };
