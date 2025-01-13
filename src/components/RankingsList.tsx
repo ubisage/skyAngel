@@ -31,11 +31,11 @@ const RankingsList: React.FC = () => {
         const response = await fetch("/api/ranking"); // Assuming API endpoint for rankings
         const data: { rankings: Ranking[] } = await response.json();
         setState({ rankings: data.rankings, loading: false, error: null });
-      } catch (err) {
+      } catch (error) {
         setState({
           rankings: [],
           loading: false,
-          error: "Error fetching rankings",
+          error: ((error as Error)?.message),
         });
       }
     }
