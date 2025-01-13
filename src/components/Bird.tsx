@@ -16,7 +16,7 @@ const Bird = forwardRef<HTMLDivElement, BirdProps>(({ position }, ref) => {
       }}
     >
       <Image
-        src={"/Bird.jpg"}
+        src={"/bird.jpg"}
         alt="Bird"
         width={64}
         height={64}
