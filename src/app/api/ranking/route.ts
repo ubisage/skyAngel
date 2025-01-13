@@ -11,8 +11,8 @@ export  async function GET() {
     try {
         const rankings = await getRankings();
     return Response.json({ rankings }) 
-  } catch (error:any) {
-    alert(error.message)
-    return Response.json({ Error:error?.message ? error.message: "Couldn't load rankings" },{status:500}) // Handle errors
+  } catch (error) {
+    return Response.json({ error: (error as Error)?.message || "Couldn't load rankings" },
+    { status: 500 }) // Handle errors
   }
 }
